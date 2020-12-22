@@ -68,9 +68,9 @@ namespace Shadowsocks.Encryption
 
         public static IEncryptor GetEncryptor(string method, string password)
         {
-            if (method.IsNullOrEmpty())
+            if (string.IsNullOrEmpty(method))
             {
-                method = "aes-256-cfb";
+                method = Model.Server.DefaultMethod;
             }
 
             method = method.ToLowerInvariant();
